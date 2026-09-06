@@ -39,15 +39,13 @@ from typing import List, Optional, Tuple
 from order_book import LimitOrderBook, Order, OrderType, Side
 
 
-# ----------------------------------------------------------------------
 # Synthetic order flow
-# ----------------------------------------------------------------------
 
 @dataclass
 class NoiseTraderFlow:
     """
     Generates a "true" underlying price random walk plus noise-trader
-    order submissions around it, so the book has two-sided flow.
+    order submissions around it
     """
     start_price: float = 100.0
     price_vol: float = 0.02          # per-step std dev of the true price random walk
@@ -106,9 +104,8 @@ class NoiseTraderFlow:
                 return k - 1
 
 
-# ----------------------------------------------------------------------
+
 # Avellaneda-Stoikov market maker
-# ----------------------------------------------------------------------
 
 @dataclass
 class AvellanedaStoikovMarketMaker:
